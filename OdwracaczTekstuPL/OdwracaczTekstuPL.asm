@@ -58,16 +58,17 @@ _main:
 	;ecx - górny indeks
 	sub ecx,2
 	 ptl:
+		cmp ebx, ecx		  ;warunek wyjœcia z pêtli
+		jnb wyjdz
 		mov dl, magazyn[ebx]  ;dl jako bufor
 		xchg dl, magazyn[ecx] ;zamiana zawartoœci buforu i ostatniego znaku
 		mov magazyn[ebx], dl  ;zamiana zawartoœci pierwszego znaki i buforu
 		inc ebx
 		dec ecx
-		cmp ebx, ecx		  ;warunek wyjœcia z pêtli
-		jb ptl
+		jmp ptl
+	 wyjdz:
 		
-		
-
+	 
 	 mov ebx, 0
 	 osiemNa16:
 		
